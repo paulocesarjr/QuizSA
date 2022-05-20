@@ -3,10 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CadastroPerguntasComponent } from './pages/cadastro-perguntas/cadastro-perguntas.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CadastroPerguntasComponent
   ],
   imports: [
     BrowserModule,
