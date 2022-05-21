@@ -1,5 +1,5 @@
 section {
-    margin: 50px 0px 0px 90px;
+    margin: 50px 0px 0px 70px;
 }
 
 .div {
@@ -15,19 +15,32 @@ section div div {
 
 section textarea {
     width: 800px;
-    height: 120px;
+    height: 150px;
 }
 
 .alternativa {
-    width: 80%;
-    height: 35%;
+    width: 85%;
+    height: 25%;
 
 }
 
 .resposta {
     width: 20%;
-    height: 35%;
+    height: 25%;
 }
 .h3{
-    margin: 15px 0px 0px 1px;
+    margin: 20px 0px 5px 1px;
+}
+
+h1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 35px;
+    margin: 0px 0px 55px 0;
+}
+
+button{
+    position: absolute;
+    right: 15%;
+    width: 10%;
+    height: 25px;
 }
