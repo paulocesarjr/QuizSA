@@ -1,0 +1,33 @@
+section {
+    margin: 50px 0px 0px 90px;
+}
+
+.div {
+    display: flex;
+    flex-flow: row wrap;
+    width: 800px;
+    height: 400px;
+}
+
+section div div {
+    width: 50%;
+}
+
+section textarea {
+    width: 800px;
+    height: 120px;
+}
+
+.alternativa {
+    width: 80%;
+    height: 35%;
+
+}
+
+.resposta {
+    width: 20%;
+    height: 35%;
+}
+.h3{
+    margin: 15px 0px 0px 1px;
+}
