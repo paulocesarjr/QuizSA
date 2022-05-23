@@ -1,0 +1,23 @@
+input{
+    display: block;
+    width: 25%;
+    position: relative;
+    left: 42%;
+}
+
+form legend{
+padding: 12px 0 ;
+}
+
+form{
+    text-align: center;
+    align-items: center;
+}
+
+
+.formContent{
+    width: 60%;
+    position: relative;
+    left: 200px;
+}
+
