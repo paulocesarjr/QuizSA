@@ -1,20 +1,36 @@
 nav{
-    background-color: rgb(141, 122, 122);
-    display: flex;
-}
-
-h1{
-    display: flex;
+    border: 5px solid rgb(141, 122, 122);
     text-align: center;
 }
 
+h1{
+    text-align: center;
+    border: 5px solid blue ;
+}
+
 h2{
+    border: 5px solid red;
     display: flex;
     text-align: left;
     gap: 20px;
 }
 
+legend{
+    border: 5px solid green;
+}
+
+ul{
+    display: flex;
+    flex-direction: column;
+}
+ul li{
+    display: flex;
+    gap: 200px;
+
+}
+
 button{
+    border: 5px solid yellow;
     display: flex;
     align-items: flex-end;
     gap: 20px;
