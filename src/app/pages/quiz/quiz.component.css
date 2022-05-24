@@ -1,3 +1,21 @@
- h1{
-    color: aqua;
+nav{
+    background-color: rgb(141, 122, 122);
+    display: flex;
+}
+
+h1{
+    display: flex;
+    text-align: center;
+}
+
+h2{
+    display: flex;
+    text-align: left;
+    gap: 20px;
+}
+
+button{
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
 }
