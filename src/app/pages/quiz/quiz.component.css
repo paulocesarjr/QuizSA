@@ -1,37 +1,42 @@
-nav{
+nav {
     border: 5px solid rgb(141, 122, 122);
-    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
-h1{
-    text-align: center;
-    border: 5px solid blue ;
+h1 {
+    display: flex;
+    justify-content: center;
+    border: 5px solid blue;
 }
 
-h2{
+h2 {
     border: 5px solid red;
     display: flex;
     text-align: left;
     gap: 20px;
 }
 
-legend{
+legend {
+    display: flex;
+    justify-content: center;
     border: 5px solid green;
 }
 
-ul{
+ul {
     display: flex;
+    gap: 5px;
     flex-direction: column;
 }
-ul li{
+
+ul li {
     display: flex;
-    gap: 200px;
 
 }
 
-button{
+button {
     border: 5px solid yellow;
     display: flex;
-    align-items: flex-end;
+   justify-content: flex-start;
     gap: 20px;
 }
