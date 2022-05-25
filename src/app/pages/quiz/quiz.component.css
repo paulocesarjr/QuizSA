@@ -1,4 +1,4 @@
-input{
+/* input{
     display: block;
     width: 25%;
     position: relative;
@@ -21,4 +21,33 @@ form{
     position: relative;
     left: 200px;
 }
+ */
+
+.container {
+  /* width: 100%; */
+
+}
+
+.form-login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item input {
+  /* display: block; */
+  width: 25%;
+  /* position: relative; */
+  /* left: 36%; */
+  margin-bottom: 12px;
+}
+
 
