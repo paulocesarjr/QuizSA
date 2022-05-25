@@ -1,5 +1,22 @@
+::ng-deep html {
+    background-color: rgba(199, 73, 0, 0.9);
+}
+
 section {
+    background-color: rgba(255, 214, 190, 0.7);
+    border-radius: 40px;
     margin: 50px 0px 0px 70px;
+    width: 1000px;
+    padding: 75px 25% 60px 30%;
+}
+
+img {
+    position: absolute;
+    margin-left: 6%;
+    top: 22%;
+    background-size: cover;
+    width: 600px;
+    
 }
 
 .div {
@@ -16,6 +33,7 @@ section div div {
 section textarea {
     width: 800px;
     height: 150px;
+
 }
 
 .alternativa {
@@ -25,22 +43,25 @@ section textarea {
 }
 
 .resposta {
-    width: 20%;
+    width: 25%;
     height: 25%;
+
 }
-.h3{
+
+.h3 {
     margin: 20px 0px 5px 1px;
 }
 
-h1{
+h1 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 35px;
     margin: 0px 0px 55px 0;
 }
 
-button{
-    position: absolute;
-    right: 15%;
-    width: 10%;
-    height: 25px;
+button {
+    position: relative;
+    left: 800px;
+    width: 150px;
+    height: 35px;
+    cursor: pointer;
 }

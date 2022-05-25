@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastroPerguntasComponent implements OnInit {
 
+  enunciadoP: string = "";
+  resp1: string = "";
+  resp2: string = "";
+  resp3: string = "";
+  resp4: string = "";
+  resp5: string = "";
+  respCerta: string = "";
+
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+
+  }
+
+  salvar() {
   }
 
 }
