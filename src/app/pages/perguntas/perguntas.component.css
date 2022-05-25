@@ -1,0 +1,74 @@
+h1{
+    display: flex;
+    justify-content: center;
+    cursor: default;
+    margin-top: 50px;
+}
+
+aside{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+aside button{
+    box-shadow: 0px 3px 5px rgb(8, 8, 8);
+    color: rgb(0, 0, 0);
+    border: 3px solid rgb(20, 11, 11);
+    width: 100px;
+    line-height: 22px;
+    border-radius: 5px;
+    background-color: #EFC900; 
+    font-size: 16px;
+    font-weight: bold;
+}
+
+aside button:hover{
+    background-color: #efc700c2;
+    cursor: pointer;
+}
+
+main table{
+    font-size: large;
+    padding-top: 45px;
+    border-style: none;
+    border-color: white;
+    border-radius: 5px;
+    width: 1350px;
+    cursor: default;
+}
+
+main table .dc{
+    width: 220px;
+}
+
+main table .editar{
+    width: 200px;
+}
+
+main table .excluir{
+    width: 200px;
+}
+
+main table th{
+    background-color: rgb(5, 91, 161);
+}
+
+main table td{
+    height: 80px;
+    background-color: #0B6BC2;
+}
+
+main table .data{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main table td a{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    background-color: #0B6BC2;
+}
+
