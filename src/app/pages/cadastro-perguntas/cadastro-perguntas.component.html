@@ -1,41 +1,43 @@
 <div class="body">
-    <img src="./../../../assets/logo-avanade-icon.png">
-    <section>
-       
-        <h1>Criar Pergunta</h1>
+    <section class="container">
+        <img src="./../../../assets/logo-avanade-icon.png">
+        <section>
 
-        <h3>Enunciado</h3>
+            <h1>Criar Pergunta</h1>
 
-        <textarea [(ngModel)]="enunciadoP"></textarea>
+            <h3>Enunciado</h3>
 
-        <div class="div">
-            <div class="pergunta">
-                <h3 class="h3">Alternativa 1</h3>
-                <input class="alternativa" type="text">
-            </div>
-            <div class="pergunta">
-                <h3 class="h3">Alternativa 2</h3>
-                <input class="alternativa" type="text">
-            </div>
-            <div class="pergunta">
-                <h3 class="h3">Alternativa 3</h3>
-                <input class="alternativa" type="text">
-            </div>
-            <div class="pergunta">
-                <h3 class="h3">Alternativa 4</h3>
-                <input class="alternativa" type="text">
-            </div>
-            <div class="pergunta">
-                <h3 class="h3">Alternativa 5</h3>
-                <input class="alternativa" type="text">
-            </div>
-            <div class="pergunta">
-                <h3 class="h3">Alternativa correta</h3>
-                <input class="resposta" type="text">
-            </div>
-        </div>
+            <textarea [(ngModel)]="enunciadoP"></textarea>
 
-        <button (click)="salvar()">Salvar</button>
+            <div class="div">
+                <div class="pergunta">
+                    <h3 class="h3">Alternativa 1</h3>
+                    <input class="alternativa" type="text">
+                </div>
+                <div class="pergunta">
+                    <h3 class="h3">Alternativa 2</h3>
+                    <input class="alternativa" type="text">
+                </div>
+                <div class="pergunta">
+                    <h3 class="h3">Alternativa 3</h3>
+                    <input class="alternativa" type="text">
+                </div>
+                <div class="pergunta">
+                    <h3 class="h3">Alternativa 4</h3>
+                    <input class="alternativa" type="text">
+                </div>
+                <div class="pergunta">
+                    <h3 class="h3">Alternativa 5</h3>
+                    <input class="alternativa" type="text">
+                </div>
+                <div class="pergunta">
+                    <h3 class="h3">Alternativa correta</h3>
+                    <input class="resposta" type="text">
+                </div>
+            </div>
 
+            <button (click)="salvar()">Salvar</button>
+
+        </section>
     </section>
 </div>

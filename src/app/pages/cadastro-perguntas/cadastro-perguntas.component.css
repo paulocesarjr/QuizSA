@@ -3,27 +3,31 @@
 }
 
 section {
-    background-color: rgba(255, 214, 190, 0.7);
-    border-radius: 40px;
     margin: 50px 0px 0px 70px;
     width: 1000px;
-    padding: 75px 25% 60px 30%;
+    height: 830px;
+}
+
+.container {
+    display: flex;
+    flex: 2;
+    background-color: rgba(255, 214, 190, 0.7);
+    border-radius: 40px;
+    width: 95%;
+    align-items: center;
 }
 
 img {
-    position: absolute;
-    margin-left: 6%;
-    top: 22%;
     background-size: cover;
     width: 600px;
-    
+    height: 70%;
 }
 
 .div {
     display: flex;
     flex-flow: row wrap;
-    width: 800px;
-    height: 400px;
+    width: 75%;
+    height: 53%;
 }
 
 section div div {
@@ -31,8 +35,10 @@ section div div {
 }
 
 section textarea {
-    width: 800px;
-    height: 150px;
+    min-width: 800px;
+    min-height: 150px;
+    max-width: 800px;
+    max-height: 150px;
 
 }
 
