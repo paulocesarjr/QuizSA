@@ -3,6 +3,22 @@
 * {
   font-family: "Roboto", sans-serif;
 }
+.bg{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 940%;
+  height: 100%;
+  background-image: radial-gradient(rgb(162, 162, 162), rgb(119, 119, 119), rgb(53, 53, 53));
+  /* background-image: url("../../../assets/image/bgQuiz2.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
+
+  
+  
+}
 
 .container {
   background-color: rgba(0, 0, 0, 0.7);
