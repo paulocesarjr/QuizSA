@@ -1,37 +1,9 @@
-/* input{
-    display: block;
-    width: 25%;
-    position: relative;
-    left: 36%;
-    margin-bottom: 12px;
+*{
+    font-family: "Lato", sans-serif;
 }
-
-form legend{
-padding: 12px 0 ;
+::placeholder{
+    color: #B4B4B4;
 }
-
-form{
-    text-align: center;
-    align-items: center;
-}
-
-
-.formContent{
-    width: 60%;
-    position: relative;
-    left: 200px;
-}
- */
-
-body {
-   /* background: url('../../../assets/image/background.jpeg');
-   background-repeat: no-repeat; */
- }
-
-/* .container { */
-  /* width: 100%; */
-/* } */
-
 .form-login {
   position: absolute;
   top: 50%;
@@ -52,6 +24,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: #FFFFFF;
   width: 225px;
   height: 234px;
   margin-left: 50px;
@@ -59,11 +32,13 @@ body {
 }
 
 .item1 label {
-  margin-bottom: 10px;
+    font-size: 23px;
+    margin-bottom: 10px;
+    color: #FFFFFF;
 }
 
 .item1 legend {
-  text-align: center;
+    text-align: center;
 }
 
 .item2 {
@@ -75,11 +50,16 @@ body {
 }
 
 .item2 input {
-  /* display: block; */
-  width: 25%;
-  /* position: relative; */
-  /* left: 36%; */
-  margin-bottom: 12px;
+    color: #FFFFFF;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    width: 64%;
+    border-bottom: 1px solid #AFAFAF;
+    margin-bottom: 15px;
+}
+.item2 button{
+    width: 55%;
 }
 
 
