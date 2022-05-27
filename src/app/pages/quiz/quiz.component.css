@@ -1,42 +1,77 @@
+body {
+    font-family: "Roboto", sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 940%;
+    height: 100%;
+    background-image: radial-gradient(rgb(162, 162, 162), rgb(119, 119, 119), rgb(53, 53, 53));
+}
+
 nav {
-    border: 5px solid rgb(141, 122, 122);
-    display: flex;
-    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
 }
 
 h1 {
     display: flex;
     justify-content: center;
-    border: 5px solid blue;
+    padding: 20px 0px 0px 0px;
+    /* border: 5px solid blue; */
 }
+
+
 
 h2 {
-    border: 5px solid red;
+    /* border: 5px solid red; */
     display: flex;
-    text-align: left;
-    gap: 20px;
+    padding: 0px 30px 10px 30px;
 }
 
-legend {
-    display: flex;
-    justify-content: center;
-    border: 5px solid green;
+.container {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    width: 773px;
+    height: 383px;
 }
 
 ul {
     display: flex;
     gap: 5px;
     flex-direction: column;
+    padding: 0px 0px 0px 30px;
+    gap: 30px;
 }
 
 ul li {
     display: flex;
-
+    gap: 10px;
+    cursor: pointer;
 }
 
 button {
-    border: 5px solid yellow;
-    display: flex;
-   justify-content: flex-start;
-    gap: 20px;
+    display: inline-block;
+    width: 200px;
+    height: 40px;
+    margin: 0 0 0 80%;
+    padding: 10px 10px 10px;
+    font-family: 'Macondo', cursive;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: rgb(0, 0, 0);
+    background-color: #4cafa7;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+button:hover {
+    background-color: #bd2727;
+    color: white;
 }
