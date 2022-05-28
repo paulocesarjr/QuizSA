@@ -1,85 +1,102 @@
-h1{
-    display: flex;
-    justify-content: center;
-    cursor: default;
-    margin-top: 50px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-img{
-    width: 28px;
-    height: 28px;
-    padding-right: 12px;
-    margin-top: 9px;
-}
+* {
+    font-family: "Roboto", sans-serif;
+    text-decoration: none;
+  }
+  .bg{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgb(162, 162, 162), rgb(119, 119, 119), rgb(53, 53, 53));
+  
+  }
 
-aside{
-    display: flex;
-    flex-direction: row-reverse;
-}
-
-.botao{
-    padding-top: 30px;
-}
-
-aside button{
-    box-shadow: 0px 3px 5px rgb(8, 8, 8);
-    color: rgb(0, 0, 0);
-    border: 3px solid rgb(20, 11, 11);
-    width: 100px;
-    line-height: 22px;
+  .container {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     border-radius: 5px;
-    background-color: #EFC900; 
+    width: 773px;
+    height: 383px;
+  }
+
+  h1{
+    color: #FFFF;
+    text-align: center;
+    cursor: default;
+  }
+  
+  table,th,td{
+      border: 1px solid #AFAFAF;
+      width: 80%;
+  }
+
+  table{
+      border-collapse: collapse;
+  }
+
+  .tabela{
+      display: flex;
+      justify-content: center;
+      margin-top: 8%;
+      margin-bottom: 5%;
+  }
+
+  tr{
+    color: #fffafa;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color:rgba(34, 34, 34, 0);
+    font-style: normal;
+    cursor: default;
+  }
+
+  .linha{
+    text-align: center;
+    width: 25%;
+    cursor: pointer; 
+  }
+
+  .linhat{
+    width: 25%;
+  }
+
+  .data{
+    text-align: center;
+    width: 45%;
+  }
+
+  .b {
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+  }
+
+  .b button{
+    margin-left: 80%;
+  }
+
+  .botao{
+    width: 55%;  
+    opacity: .8;
+    background-color: #fff;
+    height: 40px;
     font-size: 16px;
+    color: #222;
     font-weight: bold;
-}
-
-aside button:hover{
-    background-color: #efc700c2;
-    cursor: pointer;
-}
-
-main table{
-    font-size: large;
-    padding-top: 45px;
-    border-style: none;
-    border-color: white;
     border-radius: 5px;
-    width: 1350px;
-    cursor: default;
-}
+  }
 
-main table .dc{
-    width: 220px;
-}
-
-main table .editar{
-    width: 200px;
-}
-
-main table .excluir{
-    width: 200px;
-}
-
-main table th{
-    background-color: rgb(5, 91, 161);
-}
-
-main table td{
-    height: 80px;
-    background-color: #0B6BC2;
-}
-
-main table .data{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-}
-
-main table td a{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    background-color: #0B6BC2;
-}
+  .botao:hover{
+    opacity: 1;
+    transition: .5s;
+    cursor: pointer;
+  }
 
