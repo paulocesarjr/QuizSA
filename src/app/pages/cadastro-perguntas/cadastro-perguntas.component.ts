@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CadastroPerguntaService } from './cadastro-pergunta-service';
 
 @Component({
   selector: 'app-cadastro-perguntas',
@@ -14,14 +15,27 @@ export class CadastroPerguntasComponent implements OnInit {
   resp4: string = "";
   resp5: string = "";
   respCerta: string = "";
+  pergObject: Object[] = [];
 
-  constructor() { }
+  constructor(private servico: CadastroPerguntaService) { }
 
   ngOnInit() {
 
   }
 
   salvar() {
+    this.pergObject.push(
+      {
+        enunciadoP: this.enunciadoP, 
+        resp1: this.resp1,
+        resp2: this.resp2,
+        resp3: this.resp3,
+        resp4: this.resp4,
+        resp5: this.resp5,
+        respCerta: this.respCerta
+      }
+    );
+    this.servico.cadastroPergunta(this.pergObject);
   }
 
 }
