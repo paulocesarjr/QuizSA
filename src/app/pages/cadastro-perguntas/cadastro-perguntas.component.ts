@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { CadastroPerguntaService } from './cadastro-pergunta-service';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-cadastro-perguntas',
   templateUrl: './cadastro-perguntas.component.html',
   styleUrls: ['./cadastro-perguntas.component.css']
 })
-export class CadastroPerguntasComponent implements OnInit {
+export class CadastroPerguntasComponent {
 
+  // variaveis de objeto da pergunta
   enunciadoP: string = "";
   resp1: string = "";
   resp2: string = "";
@@ -17,11 +19,7 @@ export class CadastroPerguntasComponent implements OnInit {
   respCerta: string = "";
   pergObject: Object[] = [];
 
-  constructor(private servico: CadastroPerguntaService) { }
-
-  ngOnInit() {
-
-  }
+  constructor() { }
 
   salvar() {
     this.pergObject.push(
@@ -35,7 +33,6 @@ export class CadastroPerguntasComponent implements OnInit {
         respCerta: this.respCerta
       }
     );
-    this.servico.cadastroPergunta(this.pergObject);
   }
 
 }
