@@ -2,17 +2,28 @@
     <div class="container">
         <nav>Início do Quiz - Situação de Aprendizagem</nav>
         <h1>Tempo Restante -> {{ tempoDeResposta }} </h1>
-        <h2>1/3 - Primeira Pergunta</h2>
-        <form action="">
-            <legend> {{ enunciado }} </legend>
+        <h2>{{contador}}/3 - Primeira Pergunta</h2>
+        <form [formGroup]="formCliente">
+            <legend> {{ this.opcao.enunciado }} </legend>
             <ul>
-                <li><INPUT TYPE="RADIO" NAME="ALTERNATIVA" VALUE="1"> 1 - Alternativa</li>
-                <li><INPUT TYPE="RADIO" NAME="ALTERNATIVA" VALUE="2"> 2 - Alternativa</li>
-                <li><INPUT TYPE="RADIO" NAME="ALTERNATIVA" VALUE="3"> 3 - Alternativa</li>
-                <li><INPUT TYPE="RADIO" NAME="ALTERNATIVA" VALUE="4"> 4 - Alternativa</li>
-                <li><INPUT TYPE="RADIO" NAME="ALTERNATIVA" VALUE="5"> 5 - Alternativa</li>
+                <li><INPUT TYPE="RADIO" name="selecao" [value]="1" formControlName="selecao"
+                        (click)="selecionarAlternativa(1)"> 1 -
+                    {{this.opcao.alternativas[0]}}</li>
+                <li><INPUT TYPE="RADIO" name="selecao" [value]="2" formControlName="selecao"
+                        (click)="selecionarAlternativa(2)"> 2 -
+                    {{this.opcao.alternativas[1]}}</li>
+                <li><INPUT TYPE="RADIO" name="selecao" [value]="3" formControlName="selecao"
+                        (click)="selecionarAlternativa(3)"> 3 -
+                    {{this.opcao.alternativas[2]}}</li>
+                <li><INPUT TYPE="RADIO" name="selecao" [value]="4" formControlName="selecao"
+                        (click)="selecionarAlternativa(4)"> 4 -
+                    {{this.opcao.alternativas[3]}}</li>
+                <li><INPUT TYPE="RADIO" name="selecao" [value]="5" formControlName="selecao"
+                        (click)="selecionarAlternativa(5)"> 5 -
+                    {{this.opcao.alternativas[4]}}</li>
             </ul>
         </form>
-        <button type="submit" (click)="alterarPergunta()">Proxima pergunta</button>
+        <button type="submit" value="{{this.opcao.alternativaSelecionada}}" *ngIf="!selecao.invalid"
+            (click)="alterarPergunta()">Proxima pergunta</button>
     </div>
 </body>
