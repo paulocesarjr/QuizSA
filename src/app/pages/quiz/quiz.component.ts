@@ -16,7 +16,7 @@ export class QuizComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  login(campoValue: string) {
+  authUser(campoValue: string) {
     this.nickname = campoValue;
     // console.log(this.nickname, this.acessKey);
 
