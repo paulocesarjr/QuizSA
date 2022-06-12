@@ -13,27 +13,9 @@
                   <th class="linhat">Editar</th>
                   <th class="linhat">Excluir</th>
               </tr>
-              <tr>
-                  <td>Pergunta1</td>
-                  <td class="data">24/05/22</td>
-                  <td class="linha">Editar</td>
-                  <td class="linha">Excluir</td>
-              </tr>
-              <tr>
-                  <td>Pergunta2</td>
-                  <td class="data">24/05/22</td>
-                  <td class="linha">Editar</td>
-                  <td class="linha">Excluir</td>
-              </tr>
-              <tr>
-                  <td>Pergunta3</td>
-                  <td class="data">24/05/22</td>
-                  <td class="linha">Editar</td>
-                  <td class="linha">Excluir</td>
-              </tr>
-              <tr>
-                  <td>Pergunta4</td>
-                  <td class="data">24/05/22</td>
+              <tr  *ngFor="let p of perguntas">
+                  <td>{{p.pergunta}}</td>
+                  <td class="data">{{p.data}}</td>
                   <td class="linha">Editar</td>
                   <td class="linha">Excluir</td>
               </tr>
