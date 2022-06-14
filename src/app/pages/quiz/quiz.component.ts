@@ -16,6 +16,25 @@ export class QuizComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  // authUser(campoValue: string) {
+  //   this.nickname = campoValue;
+
+  //   let data: string = this.nickname;
+
+  //   fetch(`http://localhost:8080/login`, {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-type': 'application/json',
+  //     },
+  //     body: JSON.stringify(data),
+  //   })
+  //     .then((resp) => console.log(resp))
+  //     .catch((err) => console.log(err));
+  //   // requisição para a rota de login -- POST
+  // }
+
+  // endpoint = http://localhost:8080/login
+
   authUser(campoValue: string) {
     this.nickname = campoValue;
     // console.log(this.nickname, this.acessKey);
