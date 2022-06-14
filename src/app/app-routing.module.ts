@@ -4,7 +4,7 @@ import { PerguntasComponent } from './pages/perguntas/perguntas.component';
 
 const routes: Routes = [
   { path: '', component: PerguntasComponent},
-  { path: '**', component: PerguntasComponent}
+  { path: '**', redirectTo: ''}
 ];
 
 @NgModule({
