@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-//import { Perguntas } from './perguntas';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,12 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerguntasComponent implements OnInit {
 
-  
-  constructor() {
+  constructor(
+    private router: Router) {
     console.log(this.perguntas)
   } 
 
-  public perguntas = [
+  perguntas = [
     {
       id: 1,
       pergunta: 'Pergunta-1',
@@ -55,18 +55,19 @@ export class PerguntasComponent implements OnInit {
   }
 
     criar(){
+      this.router.navigate(['**']);
     
     }
 
     editar(){
-  
+
     }
 
     excluir(id: number){
       let pergunta = this.perguntas.findIndex(perguntas => perguntas.id === id)
       if(pergunta !== -1){
         this.perguntas.splice(pergunta, 1)
-        console.log(`pergunta ${id} excluida`)
+        console.log(`pergunta ${id} excluida`);
       }
     }
 }

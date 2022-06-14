@@ -16,7 +16,7 @@
               <tr  *ngFor="let p of perguntas">
                   <td>{{p.pergunta}}</td>
                   <td class="data">{{p.data}}</td>
-                  <td (click)="editar()" class="linha">Editar</td>
+                  <td (click)="editar(p.id)" class="linha">Editar</td>
                   <td (click)="excluir(p.id)" class="linha">Excluir</td>
               </tr>
               </table>
