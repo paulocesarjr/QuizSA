@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Opcao } from 'src/app/opcoes/shared/opcao';
+
 
 @Component({
   selector: 'app-quiz',
@@ -12,12 +12,16 @@ export class QuizComponent implements OnInit {
   tempoDeResposta: number = 45;
   cronometro: any;
   public formCliente: any = FormGroup;
-  public opcao: any = Opcao
+  /* public opcao: any = Opcao */
 
 
 
 
   //atributos da pergunta
+  enunciado: string = "";
+  alternativas: string[] = [];
+  alternativaSelecionada: number = 0;
+  alternativasCorreta: number = 0;
   contador: number = 0;
   identificador: number = 0;
   //serve para identificar a 1º, 2º, 3º pergunta
@@ -45,27 +49,18 @@ export class QuizComponent implements OnInit {
     }
   ];
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor() {
 
   }
 
   ngOnInit() {
     this.getcronometro();
     this.alterarPergunta();
-    this.createForm(new Opcao)
+    
 
   }
 
-  createForm(Opcao: Opcao) {
-
-    this.formCliente = this.formBuilder.group({
-      selecao: [Opcao.alternativaSelecionada, [Validators.required]],
-    })
-  }
-
-  get selecao() {
-    return this.formCliente.get("selecao")
-  }
+ 
 
   getcronometro() {
 
@@ -83,20 +78,20 @@ export class QuizComponent implements OnInit {
     /*  debugger
    */
     if (this.identificador == 0) {
-      this.opcao.enunciado = this.perguntas[0].enunciado;
-      this.opcao.alternativas = this.perguntas[0].alternativas;
-      this.opcao.alternativasCorreta = this.perguntas[0].alternativaCorreta;
+      this.enunciado = this.perguntas[0].enunciado;
+      this.alternativas = this.perguntas[0].alternativas;
+      this.alternativasCorreta = this.perguntas[0].alternativaCorreta;
       this.identificador++
     } else {
-      this.opcao.enunciado = this.perguntas[1].enunciado;
-      this.opcao.alternativas = this.perguntas[1].alternativas;
-      this.opcao.alternativasCorreta = this.perguntas[1].alternativaCorreta;
+      this.enunciado = this.perguntas[1].enunciado;
+      this.alternativas = this.perguntas[1].alternativas;
+      this.alternativasCorreta = this.perguntas[1].alternativaCorreta;
       this.identificador += 2
     }
     if (this.identificador == 3) {
-      this.opcao.enunciado = this.perguntas[2].enunciado;
-      this.opcao.alternativas = this.perguntas[2].alternativas;
-      this.opcao.alternativasCorreta = this.perguntas[2].alternativaCorreta;
+      this.enunciado = this.perguntas[2].enunciado;
+      this.alternativas = this.perguntas[2].alternativas;
+      this.alternativasCorreta = this.perguntas[2].alternativaCorreta;
 
     };
     this.contador++
@@ -111,9 +106,9 @@ export class QuizComponent implements OnInit {
   }
 
   selecionarAlternativa(selecionada: number) {
-    this.opcao.alternativaSelecionada = selecionada
-     console.log("alternativaSelecionada " + this.opcao.alternativaSelecionada)
-     console.log("alternativa correta " + this.opcao.alternativasCorreta)
+    this.alternativaSelecionada = selecionada
+     console.log("alternativaSelecionada " + this.alternativaSelecionada)
+     console.log("alternativa correta " + this.alternativasCorreta)
   }
 
 }

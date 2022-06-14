@@ -4,26 +4,26 @@
         <h1>Tempo Restante -> {{ tempoDeResposta }} </h1>
         <h2>{{contador}}/3 - Primeira Pergunta</h2>
         <form [formGroup]="formCliente">
-            <legend> {{ this.opcao.enunciado }} </legend>
+            <legend> {{ this.enunciado }} </legend>
             <ul>
-                <li><INPUT TYPE="RADIO" name="selecao" [value]="1" formControlName="selecao"
+                <li><INPUT TYPE="RADIO" name="selecao" [value]="1" 
                         (click)="selecionarAlternativa(1)"> 1 -
-                    {{this.opcao.alternativas[0]}}</li>
-                <li><INPUT TYPE="RADIO" name="selecao" [value]="2" formControlName="selecao"
+                    {{this.alternativas[0]}}</li>
+                <li><INPUT TYPE="RADIO" name="selecao" [value]="2" 
                         (click)="selecionarAlternativa(2)"> 2 -
-                    {{this.opcao.alternativas[1]}}</li>
-                <li><INPUT TYPE="RADIO" name="selecao" [value]="3" formControlName="selecao"
+                    {{this.alternativas[1]}}</li>
+                <li><INPUT TYPE="RADIO" name="selecao" [value]="3" 
                         (click)="selecionarAlternativa(3)"> 3 -
-                    {{this.opcao.alternativas[2]}}</li>
-                <li><INPUT TYPE="RADIO" name="selecao" [value]="4" formControlName="selecao"
+                    {{this.alternativas[2]}}</li>
+                <li><INPUT TYPE="RADIO" name="selecao" [value]="4" 
                         (click)="selecionarAlternativa(4)"> 4 -
-                    {{this.opcao.alternativas[3]}}</li>
-                <li><INPUT TYPE="RADIO" name="selecao" [value]="5" formControlName="selecao"
+                    {{this.alternativas[3]}}</li>
+                <li><INPUT TYPE="RADIO" name="selecao" [value]="5" 
                         (click)="selecionarAlternativa(5)"> 5 -
-                    {{this.opcao.alternativas[4]}}</li>
+                    {{this.alternativas[4]}}</li>
             </ul>
         </form>
-        <button type="submit" value="{{this.opcao.alternativaSelecionada}}" *ngIf="!selecao.invalid"
+        <button type="submit" value="{{this.alternativaSelecionada}}"
             (click)="alterarPergunta()">Proxima pergunta</button>
     </div>
 </body>
