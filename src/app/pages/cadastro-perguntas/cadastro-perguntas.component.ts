@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CadastroPerguntaService } from './cadastro-pergunta-service';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class CadastroPerguntasComponent {
   respCerta: string = "";
   pergObject: Object[] = [];
 
-  constructor() { }
+  constructor(private service: CadastroPerguntaService) { }
 
   salvar() {
     this.pergObject.push(
@@ -33,6 +34,7 @@ export class CadastroPerguntasComponent {
         respCerta: this.respCerta
       }
     );
+    this.service.cadastroPergunta(this.pergObject);
   }
 
 }
