@@ -3,27 +3,22 @@
         <nav>Início do Quiz - Situação de Aprendizagem</nav>
         <h1>Tempo Restante -> {{ tempoDeResposta }} </h1>
         <h2>{{contador}}/3 - Primeira Pergunta</h2>
-        <form [formGroup]="formCliente">
+        <form>
             <legend> {{ this.enunciado }} </legend>
             <ul>
-                <li><INPUT TYPE="RADIO" name="selecao" [value]="1" 
-                        (click)="selecionarAlternativa(1)"> 1 -
+                <li><INPUT TYPE="RADIO" name="alternativa" value="1" (click)="selecionarAlternativa(1)"> 1 -
                     {{this.alternativas[0]}}</li>
-                <li><INPUT TYPE="RADIO" name="selecao" [value]="2" 
-                        (click)="selecionarAlternativa(2)"> 2 -
+                <li><INPUT TYPE="RADIO" name="alternativa" value="2" (click)="selecionarAlternativa(2)"> 2 -
                     {{this.alternativas[1]}}</li>
-                <li><INPUT TYPE="RADIO" name="selecao" [value]="3" 
-                        (click)="selecionarAlternativa(3)"> 3 -
+                <li><INPUT TYPE="RADIO" name="alternativa" value="3" (click)="selecionarAlternativa(3)"> 3 -
                     {{this.alternativas[2]}}</li>
-                <li><INPUT TYPE="RADIO" name="selecao" [value]="4" 
-                        (click)="selecionarAlternativa(4)"> 4 -
+                <li><INPUT TYPE="RADIO" name="alternativa" value="4" (click)="selecionarAlternativa(4)"> 4 -
                     {{this.alternativas[3]}}</li>
-                <li><INPUT TYPE="RADIO" name="selecao" [value]="5" 
-                        (click)="selecionarAlternativa(5)"> 5 -
+                <li><INPUT TYPE="RADIO" name="alternativa" value="5" (click)="selecionarAlternativa(5)"> 5 -
                     {{this.alternativas[4]}}</li>
             </ul>
         </form>
-        <button type="submit" value="{{this.alternativaSelecionada}}"
-            (click)="alterarPergunta()">Proxima pergunta</button>
+        <button type="submit" value="{{this.alternativaSelecionada}}" (click)="alterarPergunta()">Proxima
+            pergunta</button>
     </div>
 </body>

@@ -22,6 +22,7 @@ export class QuizComponent implements OnInit {
   alternativas: string[] = [];
   alternativaSelecionada: number = 0;
   alternativasCorreta: number = 0;
+  pontuacao: number = 0;
   contador: number = 0;
   identificador: number = 0;
   //serve para identificar a 1º, 2º, 3º pergunta
@@ -56,11 +57,9 @@ export class QuizComponent implements OnInit {
   ngOnInit() {
     this.getcronometro();
     this.alterarPergunta();
-    
-
   }
 
- 
+
 
   getcronometro() {
 
@@ -96,7 +95,7 @@ export class QuizComponent implements OnInit {
     };
     this.contador++
     if (this.contador >= 4) {
-      this.contador = this.contador-1
+      this.contador = this.contador - 1
     }
 
 
@@ -107,8 +106,13 @@ export class QuizComponent implements OnInit {
 
   selecionarAlternativa(selecionada: number) {
     this.alternativaSelecionada = selecionada
-     console.log("alternativaSelecionada " + this.alternativaSelecionada)
-     console.log("alternativa correta " + this.alternativasCorreta)
+
+    if (this.alternativaSelecionada == this.alternativasCorreta) {
+      this.pontuacao = this.pontuacao + 5
+    }
+    console.log("alternativaSelecionada: " + this.alternativaSelecionada)
+    console.log("alternativa correta: " + this.alternativasCorreta)
+    console.log("pontuacao: " + this.pontuacao)
   }
 
 }
