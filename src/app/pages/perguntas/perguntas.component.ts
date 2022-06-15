@@ -9,11 +9,14 @@ import { Router } from '@angular/router';
 })
 export class PerguntasComponent implements OnInit {
 
+
   constructor(
     private router: Router) {
     console.log(this.perguntas)
-  } 
+  }
 
+//puxar perguntas do banco
+//cadastrar o número da pergunta e data de criação
   perguntas = [
     {
       id: 1,
@@ -59,12 +62,17 @@ export class PerguntasComponent implements OnInit {
     
     }
 
-    editar(){
-
-    }
-
-    excluir(id: number){
+    //puxar de volta id da pergunta editada
+    editar(id: number){
+      this.router.navigate(['editar', id]);
       let pergunta = this.perguntas.findIndex(perguntas => perguntas.id === id)
+      this.perguntas[pergunta]
+      console.log(`editado id: ${id}`);
+    }
+    
+    //excluir no banco pelo id
+    excluir(id: number){
+      let pergunta = this.perguntas.findIndex(perguntas => perguntas.id === id);
       if(pergunta !== -1){
         this.perguntas.splice(pergunta, 1)
         console.log(`pergunta ${id} excluida`);
