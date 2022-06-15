@@ -62,7 +62,7 @@ export class PerguntasComponent implements OnInit {
     
     }
 
-    //puxar de volta id da pergunta editada
+    //enviar o id da pergunta 
     editar(id: number){
       this.router.navigate(['editar', id]);
       let pergunta = this.perguntas.findIndex(perguntas => perguntas.id === id)
