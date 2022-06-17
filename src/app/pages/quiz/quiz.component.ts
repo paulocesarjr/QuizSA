@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 
-
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
@@ -16,8 +15,6 @@ export class QuizComponent implements OnInit {
   /* public opcao: any = Opcao */
 
 
-
-
   //atributos da pergunta
   enunciado: string = "";
   alternativas: string[] = [];
@@ -25,8 +22,6 @@ export class QuizComponent implements OnInit {
   alternativasCorreta: number = 0;
   pontuacao: number = 0;
   contador: number = 0;
-  identificador: number = 0;
-  //serve para identificar a 1º, 2º, 3º pergunta
 
 
   // variáveis das perguntas
@@ -40,7 +35,7 @@ export class QuizComponent implements OnInit {
     {
       id: 2,
       enunciado: 'O que é uma tainha?',
-      alternativas: ['Urso', 'Leão', 'dffdfdfdfdfdsdgsggsgsdgdsgasffsfsdfdgdgdgdgdgdgdg', 'Avaião', 'Pexie'],
+      alternativas: ['Urso', 'Leão', 'Passáro', 'Avaião', 'Pexie'],
       alternativaCorreta: 5
     },
     {
@@ -51,15 +46,16 @@ export class QuizComponent implements OnInit {
     }
   ];
 
+
   constructor() {
 
   }
+
 
   ngOnInit() {
     this.getcronometro();
     this.alterarPergunta();
   }
-
 
 
   getcronometro() {
@@ -74,40 +70,47 @@ export class QuizComponent implements OnInit {
 
   }
 
+
   alterarPergunta() {
-    /*  debugger
-   */
-    if (this.identificador == 0) {
+
+    this.contador++;
+
+    if (this.contador == 1) {
       this.enunciado = this.perguntas[0].enunciado;
       this.alternativas = this.perguntas[0].alternativas;
       this.alternativasCorreta = this.perguntas[0].alternativaCorreta;
-      this.identificador++
-    } else {
+    }
+
+    this.calcularPontuacao();
+
+    if (this.contador == 2) {
       this.enunciado = this.perguntas[1].enunciado;
       this.alternativas = this.perguntas[1].alternativas;
       this.alternativasCorreta = this.perguntas[1].alternativaCorreta;
-      this.identificador += 2
     }
-    if (this.identificador == 3) {
+
+    if (this.contador == 3) {
       this.enunciado = this.perguntas[2].enunciado;
       this.alternativas = this.perguntas[2].alternativas;
       this.alternativasCorreta = this.perguntas[2].alternativaCorreta;
-
     };
-    this.contador++
-    if (this.contador >= 4) {
-      this.contador = this.contador - 1
-    }
 
+    if (this.contador >= 4) {
+      this.contador = this.contador - 1;
+      alert("Encerrou o jogo");
+    }
 
   }
 
 
   selecionarAlternativa(selecionada: number) {
     this.alternativaSelecionada = selecionada
+  }
 
+
+  calcularPontuacao() {
     if (this.alternativaSelecionada == this.alternativasCorreta) {
-      this.pontuacao = this.pontuacao + 5
+      this.pontuacao +=5;
     }
     console.log("alternativaSelecionada: " + this.alternativaSelecionada)
     console.log("alternativa correta: " + this.alternativasCorreta)
