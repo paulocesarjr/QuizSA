@@ -1,4 +1,5 @@
 <body>
+
     <div class="container">
         <nav>Início do Quiz - Situação de Aprendizagem</nav>
         <h1>Tempo Restante -> {{ tempoDeResposta }} </h1>
@@ -6,16 +7,21 @@
         <form>
             <legend> {{ this.enunciado }} </legend>
             <ul>
-                <li><INPUT TYPE="RADIO" name="alternativa" value="1" (click)="selecionarAlternativa(1)"> 1 -
-                    {{this.alternativas[0]}}</li>
-                <li><INPUT TYPE="RADIO" name="alternativa" value="2" (click)="selecionarAlternativa(2)"> 2 -
-                    {{this.alternativas[1]}}</li>
-                <li><INPUT TYPE="RADIO" name="alternativa" value="3" (click)="selecionarAlternativa(3)"> 3 -
-                    {{this.alternativas[2]}}</li>
-                <li><INPUT TYPE="RADIO" name="alternativa" value="4" (click)="selecionarAlternativa(4)"> 4 -
-                    {{this.alternativas[3]}}</li>
-                <li><INPUT TYPE="RADIO" name="alternativa" value="5" (click)="selecionarAlternativa(5)"> 5 -
-                    {{this.alternativas[4]}}</li>
+                <li><button class="botoes" (click)="selecionarAlternativa(1)" id="x">1-</button>
+                    <label for="x">{{this.alternativas[0]}}</label>
+                </li>
+                <li><button class="botoes" (click)="selecionarAlternativa(2)">2-</button>
+                    <label for="x">{{this.alternativas[1]}}</label>
+                </li>
+                <li><button class="botoes" (click)="selecionarAlternativa(3)">3-</button>
+                    <label for="x">{{this.alternativas[2]}}</label>
+                </li>
+                <li><button class="botoes" (click)="selecionarAlternativa(4)">4-</button>
+                    <label for="x">{{this.alternativas[3]}}</label>
+                </li>
+                <li><button class="botoes" (click)="selecionarAlternativa(5)">5-</button>
+                    <label for="x">{{this.alternativas[4]}}</label>
+                </li>
             </ul>
         </form>
         <button type="submit" value="{{this.alternativaSelecionada}}" (click)="alterarPergunta()">Proxima

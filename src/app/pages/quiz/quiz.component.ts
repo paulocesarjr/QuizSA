@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 
+
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
@@ -39,7 +40,7 @@ export class QuizComponent implements OnInit {
     {
       id: 2,
       enunciado: 'O que é uma tainha?',
-      alternativas: ['Urso', 'Leão', 'Passáro', 'Avaião', 'Pexie'],
+      alternativas: ['Urso', 'Leão', 'dffdfdfdfdfdsdgsggsgsdgdsgasffsfsdfdgdgdgdgdgdgdg', 'Avaião', 'Pexie'],
       alternativaCorreta: 5
     },
     {
@@ -99,10 +100,8 @@ export class QuizComponent implements OnInit {
     }
 
 
-
-
-
   }
+
 
   selecionarAlternativa(selecionada: number) {
     this.alternativaSelecionada = selecionada

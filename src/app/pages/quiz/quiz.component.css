@@ -26,7 +26,7 @@ body {
     height: 383px;
 }
 
-nav{
+nav {
     padding-top: 15px;
     display: flex;
     justify-content: center;
@@ -45,12 +45,34 @@ h2 {
 }
 
 legend {
-    text-align: center;  
+    text-align: center;
+}
+
+ul {
+
+    margin-bottom: 5px;
 }
 
 ul li {
     list-style: none;
     padding-bottom: 10px;
+}
+
+.botoes {
+    padding-left: 10px;
+    margin-inline-start: 20px;
+    width: auto;
+    opacity: .8;
+    background-color: #fff;
+    height: 20px;
+    font-size: 13px;
+    color: #222;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.botoes:focus {
+    background-color: green;
 }
 
 button {
@@ -69,4 +91,8 @@ button:hover {
     opacity: 1;
     transition: .5s;
     cursor: pointer;
+}
+
+label{
+    padding-left: 10px;
 }
