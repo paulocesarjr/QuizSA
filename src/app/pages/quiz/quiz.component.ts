@@ -95,7 +95,7 @@ export class QuizComponent implements OnInit {
       this.alternativas = this.perguntas[2].alternativas;
       this.alternativasCorreta = this.perguntas[2].alternativaCorreta;
     } else {
-      this.route.navigateByUrl("/ranking" , this.pontuacao);
+      this.route.navigateByUrl("/ranking" +this.pontuacao);
     }
 
     if (this.contador >= 4) {
