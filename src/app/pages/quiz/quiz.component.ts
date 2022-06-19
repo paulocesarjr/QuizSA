@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -47,7 +48,7 @@ export class QuizComponent implements OnInit {
   ];
 
 
-  constructor() {
+  constructor(private route: Router) {
 
   }
 
@@ -81,7 +82,7 @@ export class QuizComponent implements OnInit {
       this.alternativasCorreta = this.perguntas[0].alternativaCorreta;
     }
 
-    this.calcularPontuacao();
+    this.calcularPontuacao()
 
     if (this.contador == 2) {
       this.enunciado = this.perguntas[1].enunciado;
@@ -93,7 +94,9 @@ export class QuizComponent implements OnInit {
       this.enunciado = this.perguntas[2].enunciado;
       this.alternativas = this.perguntas[2].alternativas;
       this.alternativasCorreta = this.perguntas[2].alternativaCorreta;
-    };
+    } else {
+      this.route.navigateByUrl("/ranking" , this.pontuacao);
+    }
 
     if (this.contador >= 4) {
       this.contador = this.contador - 1;
@@ -110,7 +113,7 @@ export class QuizComponent implements OnInit {
 
   calcularPontuacao() {
     if (this.alternativaSelecionada == this.alternativasCorreta) {
-      this.pontuacao +=5;
+      this.pontuacao += 5;
     }
     console.log("alternativaSelecionada: " + this.alternativaSelecionada)
     console.log("alternativa correta: " + this.alternativasCorreta)
