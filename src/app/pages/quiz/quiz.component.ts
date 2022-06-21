@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { QuizService } from 'src/app/services/quiz.service';
 
 
 @Component({
@@ -68,12 +69,16 @@ export class QuizComponent implements OnInit {
   ];
 
 
-  constructor(private route: Router) {
+  constructor(private route: Router, 
+              private service: QuizService) {
 
   }
 
 
   ngOnInit() {
+    // this.service.getPerguntas().subscribe(perguntas => {
+    //   this.perguntas.push(perguntas);
+    // });
     this.getcronometro();
     this.alterarPergunta();
   }
@@ -86,6 +91,7 @@ export class QuizComponent implements OnInit {
 
       if (this.tempoDeResposta == 0) {
         clearInterval(this.cronometro);
+          this.route.navigateByUrl("/ranking" + this.pontuacao);
       }
     }, 1000);
 
@@ -93,7 +99,7 @@ export class QuizComponent implements OnInit {
 
 
   alterarPergunta() {
-
+    
     this.contador++;
 
     if (this.contador == 1) {
@@ -121,7 +127,7 @@ export class QuizComponent implements OnInit {
       this.cabecalho = this.proximaPergunta[2].cabecalho;
       this.botao = this.proximaPergunta[2].botao
     } else {
-      this.route.navigateByUrl("/ranking" +this.pontuacao);
+      this.route.navigateByUrl("/ranking" + this.pontuacao);
     }
 
     if (this.contador >= 4) {
