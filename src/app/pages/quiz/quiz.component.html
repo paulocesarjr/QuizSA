@@ -3,7 +3,7 @@
     <div class="container">
         <nav>Início do Quiz - Situação de Aprendizagem</nav>
         <h1>Tempo Restante -> {{ tempoDeResposta }} </h1>
-        <h2>{{contador}}/3 - Pergunta</h2>
+        <h2>{{contador}}/3 - {{cabecalho}}</h2>
         <form>
             <legend> {{ this.enunciado }} </legend>
             <ul>
@@ -24,7 +24,6 @@
                 </li>
             </ul>
         </form>
-        <button type="submit" value="{{this.alternativaSelecionada}}" (click)="alterarPergunta()">Proxima
-            pergunta</button>
+        <button type="submit" value="{{this.alternativaSelecionada}}" (click)="alterarPergunta()">{{botao}}</button>
     </div>
 </body>

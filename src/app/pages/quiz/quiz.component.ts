@@ -23,7 +23,8 @@ export class QuizComponent implements OnInit {
   alternativasCorreta: number = 0;
   pontuacao: number = 0;
   contador: number = 0;
-
+  cabecalho: string = "";
+  botao: string = "";
 
   // variáveis das perguntas
   perguntas: any[] = [
@@ -44,6 +45,25 @@ export class QuizComponent implements OnInit {
       enunciado: 'O que é bananeira?',
       alternativas: ['A', 'B', 'C', 'D', 'E'],
       alternativaCorreta: 3
+    }
+  ];
+
+  // váriáveis cabeçalho e botão de próxima pergunta
+  proximaPergunta: any[] = [
+    {
+      id: 1,
+      cabecalho: 'Primeira Pergunta',
+      botao: 'Próxima Pergunta'
+    },
+    {
+      id: 2,
+      cabecalho: 'Segunda Pergunta',
+      botao: 'Próxima Pergunta'
+    },
+    {
+      id: 3,
+      cabecalho: 'Terceira Pergunta',
+      botao: 'Finalizar Quiz'
     }
   ];
 
@@ -80,6 +100,8 @@ export class QuizComponent implements OnInit {
       this.enunciado = this.perguntas[0].enunciado;
       this.alternativas = this.perguntas[0].alternativas;
       this.alternativasCorreta = this.perguntas[0].alternativaCorreta;
+      this.cabecalho = this.proximaPergunta[0].cabecalho;
+      this.botao = this.proximaPergunta[0].botao
     }
 
     this.calcularPontuacao()
@@ -88,12 +110,16 @@ export class QuizComponent implements OnInit {
       this.enunciado = this.perguntas[1].enunciado;
       this.alternativas = this.perguntas[1].alternativas;
       this.alternativasCorreta = this.perguntas[1].alternativaCorreta;
+      this.cabecalho = this.proximaPergunta[1].cabecalho;
+      this.botao = this.proximaPergunta[1].botao
     }
 
     if (this.contador == 3) {
       this.enunciado = this.perguntas[2].enunciado;
       this.alternativas = this.perguntas[2].alternativas;
       this.alternativasCorreta = this.perguntas[2].alternativaCorreta;
+      this.cabecalho = this.proximaPergunta[2].cabecalho;
+      this.botao = this.proximaPergunta[2].botao
     } else {
       this.route.navigateByUrl("/ranking" +this.pontuacao);
     }
