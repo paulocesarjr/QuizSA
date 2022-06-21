@@ -16,7 +16,7 @@ export class QuizComponent implements OnInit {
   /* public opcao: any = Opcao */
 
 
-  //atributos da pergunta
+  //atributos globais do array de perguntas e próxima pergunta
   enunciado: string = "";
   alternativas: string[] = [];
   alternativaSelecionada: number = 0;
