@@ -7,19 +7,19 @@
         <form>
             <legend> {{ this.enunciado }} </legend>
             <ul>
-                <li><button class="botoes" (click)="selecionarAlternativa(1)" id="x">1-</button>
+                <li><button class="botoes" (click)="selecionarAlternativa('A')" id="x">A</button>
                     <label for="x">{{this.alternativas[0]}}</label>
                 </li>
-                <li><button class="botoes" (click)="selecionarAlternativa(2)">2-</button>
+                <li><button class="botoes" (click)="selecionarAlternativa('B')">B</button>
                     <label for="x">{{this.alternativas[1]}}</label>
                 </li>
-                <li><button class="botoes" (click)="selecionarAlternativa(3)">3-</button>
+                <li><button class="botoes" (click)="selecionarAlternativa('C')">C</button>
                     <label for="x">{{this.alternativas[2]}}</label>
                 </li>
-                <li><button class="botoes" (click)="selecionarAlternativa(4)">4-</button>
+                <li><button class="botoes" (click)="selecionarAlternativa('D')">D</button>
                     <label for="x">{{this.alternativas[3]}}</label>
                 </li>
-                <li><button class="botoes" (click)="selecionarAlternativa(5)">5-</button>
+                <li><button class="botoes" (click)="selecionarAlternativa('E')">E</button>
                     <label for="x">{{this.alternativas[4]}}</label>
                 </li>
             </ul>

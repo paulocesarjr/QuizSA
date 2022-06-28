@@ -20,8 +20,8 @@ export class QuizComponent implements OnInit {
   //atributos globais do array de perguntas e próxima pergunta
   enunciado: string = "";
   alternativas: string[] = [];
-  alternativaSelecionada: number = 0;
-  alternativasCorreta: number = 0;
+  alternativaSelecionada: string = "";
+  alternativasCorreta: string = "";
   pontuacao: number = 0;
   contador: number = 0;
   cabecalho: string = "";
@@ -33,19 +33,19 @@ export class QuizComponent implements OnInit {
       id: 1,
       enunciado: 'Quanto é 2+2?',
       alternativas: ['2', '4', '1', '1.000', '5'],
-      alternativaCorreta: 2
+      alternativaCorreta: 'B'
     },
     {
       id: 2,
       enunciado: 'O que é uma tainha?',
       alternativas: ['Urso', 'Leão', 'Passáro', 'Avaião', 'Pexie'],
-      alternativaCorreta: 5
+      alternativaCorreta: 'E'
     },
     {
       id: 3,
       enunciado: 'O que é bananeira?',
       alternativas: ['A', 'B', 'C', 'D', 'E'],
-      alternativaCorreta: 3
+      alternativaCorreta: 'C'
     }
   ];
 
@@ -100,8 +100,8 @@ export class QuizComponent implements OnInit {
 
   alterarPergunta() {
     
-    this.contador++;
-
+    this.contador++;  
+    
     if (this.contador == 1) {
       this.enunciado = this.perguntas[0].enunciado;
       this.alternativas = this.perguntas[0].alternativas;
@@ -138,12 +138,13 @@ export class QuizComponent implements OnInit {
   }
 
 
-  selecionarAlternativa(selecionada: number) {
+  selecionarAlternativa(selecionada: string) {
     this.alternativaSelecionada = selecionada
   }
 
 
   calcularPontuacao() {
+  
     if (this.alternativaSelecionada == this.alternativasCorreta) {
       this.pontuacao += 5;
     }
