@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component } from '@angular/core';
 import { CadastroPerguntaService } from './cadastro-pergunta-service';
 
 
@@ -8,7 +7,7 @@ import { CadastroPerguntaService } from './cadastro-pergunta-service';
   templateUrl: './cadastro-perguntas.component.html',
   styleUrls: ['./cadastro-perguntas.component.css']
 })
-export class CadastroPerguntasComponent implements OnInit {
+export class CadastroPerguntasComponent {
 
   // variaveis de objeto da pergunta
   id?: number;
@@ -21,48 +20,24 @@ export class CadastroPerguntasComponent implements OnInit {
   respCerta: string = "";
   pergObject: Object[] = [];
   
-  constructor(private service: CadastroPerguntaService, 
-              private route: ActivatedRoute) { }
-
-  ngOnInit() {
-    this.pergObject = this.route.snapshot.queryParams["editar"];
-    this.pergObject.forEach(pergunta =>{
-      // this.enunciadoP = pergunta.enunciado,
-      // this.
-      // this.respCerta = pergunta.alternativacorreta
-
-    })
-  }
+  constructor(private service: CadastroPerguntaService) { }
 
   salvar() {
-    if(this.id){
+    debugger
       this.pergObject.push(
         {
-          id: this.id,
-          enunciadoP: this.enunciadoP, 
-          resp1: this.resp1,
-          resp2: this.resp2,
-          resp3: this.resp3,
-          resp4: this.resp4,
-          resp5: this.resp5,
-          respCerta: this.respCerta
+          enunciado: this.enunciadoP, 
+          alternativa_a: this.resp1,
+          alternativa_b: this.resp2,
+          alternativa_c: this.resp3,
+          alternativa_d: this.resp4,
+          alternativa_e: this.resp5,
+          alternativa_correta: this.respCerta
         }
       );
-    this.service.editarPergunta(this.pergObject);
-    }else{
-      this.pergObject.push(
-        {
-          enunciadoP: this.enunciadoP, 
-          resp1: this.resp1,
-          resp2: this.resp2,
-          resp3: this.resp3,
-          resp4: this.resp4,
-          resp5: this.resp5,
-          respCerta: this.respCerta
-        }
-      );
+      debugger
+      console.log(this.pergObject);
       this.service.cadastroPergunta(this.pergObject);
-    }
   }
 }
 

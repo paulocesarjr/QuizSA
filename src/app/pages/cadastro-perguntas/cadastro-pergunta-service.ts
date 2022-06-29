@@ -1,16 +1,20 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, } from '@angular/common/http';
+import { HttpClient, HttpParams, } from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
 export class CadastroPerguntaService {
 
-    editarPergunta(pergObject: Object[]) {
-      this.http.put('editar', pergObject);
-    }
+  url: string = "http://localhost:5000";
 
     constructor(private http: HttpClient) { }
 
     cadastroPergunta(cadPerg: Object) {
-      return this.http.post('cadastro/salvaPergunta', cadPerg);
+      debugger
+      return this.http.post(this.url + "/", {headers: cadPerg});
+    }
+
+    editarPergunta(pergObject: Object[]) {
+      console.log(pergObject);
+      this.http.put('editar', pergObject);
     }
 }
