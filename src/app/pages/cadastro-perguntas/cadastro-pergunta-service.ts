@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams, } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
 export class CadastroPerguntaService {
@@ -8,13 +8,16 @@ export class CadastroPerguntaService {
 
     constructor(private http: HttpClient) { }
 
-    cadastroPergunta(cadPerg: Object) {
-      debugger
-      return this.http.post(this.url + "/", {headers: cadPerg});
+    cadastroPergunta(cadPerg: Object[]) {
+      return this.http.post(this.url + "/", { body: cadPerg } );
     }
 
-    editarPergunta(pergObject: Object[]) {
-      console.log(pergObject);
-      this.http.put('editar', pergObject);
+    editarPergunta(pergObject: Object[], id: number) {
+      this.http.put(this.url + '/' + id, pergObject);
     }
+
+    pegaPergunta(id: number) {
+      return this.http.get(this.url + "/" + id);
+    }
+
 }
