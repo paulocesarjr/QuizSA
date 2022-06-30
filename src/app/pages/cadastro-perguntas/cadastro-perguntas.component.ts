@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CadastroPerguntaService } from './cadastro-pergunta-service';
-
 
 @Component({
   selector: 'app-cadastro-perguntas',
@@ -20,10 +20,39 @@ export class CadastroPerguntasComponent {
   respCerta: string = "";
   pergObject: Object[] = [];
   
-  constructor(private service: CadastroPerguntaService) { }
+  constructor(private service: CadastroPerguntaService,
+              private route: ActivatedRoute) { 
+    this.id = this.route.snapshot.params['editar'];
+    this.id = 1;
+    if(this.id) {
+      this.service.pegaPergunta(this.id).subscribe((res: any) => {
+        this.enunciadoP = res.pergunta[0].enunciado;
+        this.resp1 = res.pergunta[0].alternativa_a;
+        this.resp2 = res.pergunta[0].alternativa_b;
+        this.resp3 = res.pergunta[0].alternativa_c;
+        this.resp4 = res.pergunta[0].alternativa_d;
+        this.resp5 = res.pergunta[0].alternativa_e;
+        this.respCerta = res.pergunta[0].alternativa_correta;
+      });
+    }
+   }
 
   salvar() {
-    debugger
+    if(this.id){
+      this.pergObject.push(
+        {
+          id: this.id,
+          enunciado: this.enunciadoP, 
+          alternativa_a: this.resp1,
+          alternativa_b: this.resp2,
+          alternativa_c: this.resp3,
+          alternativa_d: this.resp4,
+          alternativa_e: this.resp5,
+          alternativa_correta: this.respCerta
+        }
+      );
+      this.service.editarPergunta(this.pergObject, this.id);
+    } else {
       this.pergObject.push(
         {
           enunciado: this.enunciadoP, 
@@ -35,9 +64,8 @@ export class CadastroPerguntasComponent {
           alternativa_correta: this.respCerta
         }
       );
-      debugger
-      console.log(this.pergObject);
       this.service.cadastroPergunta(this.pergObject);
+    }
   }
 }
 
