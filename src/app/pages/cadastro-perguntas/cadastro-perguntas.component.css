@@ -4,52 +4,49 @@
     font-family: "Roboto", sans-serif;
 }
 
-.body {
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 110%;
+::ng-deep body {
+    margin-top: 40px;
+    margin-left: 10%;
+    margin-right: 10%;
     background-image: radial-gradient(rgb(162, 162, 162), rgb(119, 119, 119), rgb(53, 53, 53));
 }
 
 section {
-    margin: 50px 0px 0px 70px;
-    width: 1000px;
-    height: 830px;
+    padding-top: 5px;
+    max-width: 100%;
+
 }
 
 .container {
-    display: flex;
-    flex: 2;
     background-color: rgba(0, 0, 0, 0.7);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     border-radius: 5px;
-    width: 1100px;
-    height: 835px;
+}
+
+@media screen and (max-width: 700px){
+    .div {
+        display: flex;
+        flex-direction: column;
+        width: 75%;
+        height: 53%;
+        margin-left: 5%;
+        margin-top: 30px;
+    }
 }
 
 .div {
     display: flex;
-    flex-flow: row wrap;
+    flex-wrap: wrap;
     width: 75%;
     height: 53%;
-    margin-top: 80px;
+    margin-left: 5%;
+    margin-top: 30px;
 }
 
-/* section div div {
-    width: 50%;
-} */
-
 section textarea {
-    min-width: 800px;
-    min-height: 150px;
     max-width: 800px;
+    min-width: 68%;
     max-height: 150px;
+    margin-left: 5%;
     color: #FFFFFF;
     border: 0;
     outline: 0;
@@ -60,21 +57,38 @@ section textarea {
 
 }
 
-h3 {
-    margin: 20px 0px 5px 1px;
+div section section h3 {
+    margin-top: 50px;
+    margin-left: 5%;
     color: #fff;
     font-weight: bold;
 }
 
-h1 {
+div section section h1 {
     font-size: 25px;
-    margin: 0px 0px 55px 0;
+    margin-top: 50px;
+    margin-left: 5%;
     color: #fff;
     font-weight: bold;
+}
+
+@media screen and (max-width: 900px){
+    .btn {
+        width: 90%;
+        opacity: .8;
+        background-color: #fff;
+        height: 40px;
+        font-size: 16px;
+        color: #222;
+        font-weight: bold;
+        border-radius: 5px;
+        margin-bottom: 40px;
+    }
 }
 
 .btn {
-    width: 23%;
+    position: fixed;
+    width: 20%;
     opacity: .8;
     background-color: #fff;
     height: 40px;
@@ -82,24 +96,14 @@ h1 {
     color: #222;
     font-weight: bold;
     border-radius: 5px;
-    position: relative;
-    top: -140px;
-    left: 75% ;
-    
-  }
+    top: 600px;
+    margin-left: 50%;
+}
   
-  .btn:hover {
+.btn:hover {
     opacity: 1;
     transition: .5s;
     cursor: pointer;
-  }
-
-.item2 {
-    display: flex;
-    flex-direction: column;
-    width: 325px;
-    margin-right: 50px;
-    margin-top: -30px;
 }
 
 .item2 label {
@@ -108,13 +112,44 @@ h1 {
     font-weight: bold;
 }
 
+@media screen and (max-width: 700px){
+    .item2 {
+        display: flex;
+        flex-direction: column;
+        width: 90% !important;
+        margin-right: 20px;
+        margin-top: 30px;
+    }
+}
+
+.item2 {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    margin-right: 20px;
+    margin-top: 30px;
+}
+
+@media screen and (max-width: 700px){
+    .item2 input {
+        color: #FFFFFF;
+        border: 0;
+        outline: 0;
+        background: transparent;
+        width: 45%;
+        border-bottom: 1px solid #AFAFAF;
+        margin-bottom: 15px;
+        font-size: 16px;
+        opacity: .7;
+    }
+}
 
 .item2 input {
     color: #FFFFFF;
     border: 0;
     outline: 0;
     background: transparent;
-    width: 341px;
+    width: 100%;
     border-bottom: 1px solid #AFAFAF;
     margin-bottom: 15px;
     font-size: 16px;
@@ -130,11 +165,20 @@ h1 {
     opacity: 1;
 }
 
+@media screen and (max-width: 700px){
+    .itemCerta {
+        display: flex;
+        flex-direction: column;
+        width: 90% !important;
+        margin-top: 30px;
+    }
+}
+
 .itemCerta {
     display: flex;
     flex-direction: column;
-    width: 315px;
-    margin-top: -30px;
+    width: 35%;
+    margin-top: 30px;
 }
 
 .itemCerta label {
@@ -143,6 +187,19 @@ h1 {
     font-weight: bold;
 }
 
+@media screen and (max-width: 700px){
+    .itemCerta input {
+        color: #FFFFFF;
+        border: 0;
+        outline: 0;
+        background: transparent;
+        width: 100% !important;
+        border-bottom: 1px solid #AFAFAF;
+        margin-bottom: 40px;
+        font-size: 16px;
+        opacity: .7;
+    }
+}
 
 .itemCerta input {
     color: #FFFFFF;
@@ -151,7 +208,7 @@ h1 {
     background: transparent;
     width: 170px;
     border-bottom: 1px solid #AFAFAF;
-    margin-bottom: 15px;
+    margin-bottom: 40px;
     font-size: 16px;
     opacity: .7;
 }

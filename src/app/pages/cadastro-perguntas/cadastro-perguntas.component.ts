@@ -23,7 +23,7 @@ export class CadastroPerguntasComponent {
   constructor(private service: CadastroPerguntaService,
               private route: ActivatedRoute) { 
     this.id = this.route.snapshot.params['editar'];
-    this.id = 1;
+    // this.id = 1;
     if(this.id) {
       this.service.pegaPergunta(this.id).subscribe((res: any) => {
         this.enunciadoP = res.pergunta[0].enunciado;
@@ -38,6 +38,7 @@ export class CadastroPerguntasComponent {
    }
 
   salvar() {
+    this.pergObject = [];
     if(this.id){
       this.pergObject.push(
         {
@@ -66,6 +67,18 @@ export class CadastroPerguntasComponent {
       );
       this.service.cadastroPergunta(this.pergObject);
     }
+    this.limpaCampos();
+  }
+
+  limpaCampos() {
+    this.id = 0;
+    this.enunciadoP = "";
+    this.resp1 = "";
+    this.resp2 = "";
+    this.resp3 = "";
+    this.resp4 = "";
+    this.resp5 = "";
+    this.respCerta = "";
   }
 }
 
