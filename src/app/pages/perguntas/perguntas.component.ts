@@ -14,9 +14,9 @@ export class PerguntasComponent implements OnInit {
     private router: Router) {
     console.log(this.perguntas)
   }
+  
 
 //puxar perguntas do banco
-//cadastrar o número da pergunta e data de criação
   perguntas = [
     {
       id: 1,
@@ -64,10 +64,11 @@ export class PerguntasComponent implements OnInit {
 
     //enviar o id da pergunta 
     editar(id: number){
-      this.router.navigate(['editar', id]);
-      let pergunta = this.perguntas.findIndex(perguntas => perguntas.id === id)
-      this.perguntas[pergunta]
+      let pergunta = this.perguntas.findIndex(perguntas => perguntas.id === id);
+      if(pergunta !== -1){
+      this.router.navigate(['editar', pergunta]);
       console.log(`editado id: ${id}`);
+      }
     }
     
     //excluir no banco pelo id
