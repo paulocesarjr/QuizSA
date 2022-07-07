@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./quiz.component.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="container">
+    <form class="form-login" action="">
+      <div class="item1">
+        <h1>Nome do sistema</h1>
+        <legend>Faça login com seu nickname se quiser entrar como jogador, ou use o codigo
+          de acesso para cadastrar e editar questões para jogadores.
+        </legend>
+      </div>
+      <div class="item2">
+        <label for="">Login</label>
+        <input type="text" placeholder="nickname ou chave de acesso"  #campoValue>
+        <button class="btn" (click)="authUser(campoValue.value)">entrar</button>
+       
+      </div>
+    </form>
+  </div>
+</body>
+</html>
