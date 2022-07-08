@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { QuizService } from 'src/app/services/quiz.service';
-
 
 @Component({
   selector: 'app-quiz',
@@ -13,41 +11,25 @@ export class QuizComponent implements OnInit {
   // variáveis do cronometro
   tempoDeResposta: number = 45;
   cronometro: any;
-  public formCliente: any = FormGroup;
-  /* public opcao: any = Opcao */
-
 
   //atributos globais do array de perguntas e próxima pergunta
+  nickname: string = "";
   enunciado: string = "";
-  alternativas: string[] = [];
+  alternativaA: string = "";
+  alternativaB: string = "";
+  alternativaC: string = "";
+  alternativaD: string = "";
+  alternativaE: string = "";
   alternativaSelecionada: string = "";
   alternativasCorreta: string = "";
   pontuacao: number = 0;
-  contador: number = 0;
+  contarPerguntas: number = 0;
+  contador: number = 1;
   cabecalho: string = "";
   botao: string = "";
 
   // variáveis das perguntas
-  perguntas: any[] = [
-    {
-      id: 1,
-      enunciado: 'Quanto é 2+2?',
-      alternativas: ['2', '4', '1', '1.000', '5'],
-      alternativaCorreta: 'B'
-    },
-    {
-      id: 2,
-      enunciado: 'O que é uma tainha?',
-      alternativas: ['Urso', 'Leão', 'Passáro', 'Avaião', 'Pexie'],
-      alternativaCorreta: 'E'
-    },
-    {
-      id: 3,
-      enunciado: 'O que é bananeira?',
-      alternativas: ['A', 'B', 'C', 'D', 'E'],
-      alternativaCorreta: 'C'
-    }
-  ];
+  perguntas: any = [];
 
   // váriáveis cabeçalho e botão de próxima pergunta
   proximaPergunta: any[] = [
@@ -68,89 +50,96 @@ export class QuizComponent implements OnInit {
     }
   ];
 
-
-  constructor(private route: Router, 
-              private service: QuizService) {
-
-  }
-
+  constructor(private router: Router,
+    private service: QuizService,
+    private route: ActivatedRoute) {
+      this.nickname = "testefinal";
+      // this.nickname = this.route.snapshot.params["quiz"];
+     }
 
   ngOnInit() {
-    // this.service.getPerguntas().subscribe(perguntas => {
-    //   this.perguntas.push(perguntas);
-    // });
+    this.service.getPerguntas().subscribe((res: any) => {
+      this.perguntas = res.perguntas;
+      this.enunciado = res.perguntas[0].enunciado;
+      this.alternativaA = res.perguntas[0].alternativa_a;
+      this.alternativaB = res.perguntas[0].alternativa_b;
+      this.alternativaC = res.perguntas[0].alternativa_c;
+      this.alternativaD = res.perguntas[0].alternativa_d;
+      this.alternativaE = res.perguntas[0].alternativa_e;
+      this.alternativasCorreta = res.perguntas[0].alternativa_correta;
+    }, error => {
+      console.log(error);
+    });
     this.getcronometro();
-    this.alterarPergunta();
+    this.alterarEstadoDoBotao();
   }
-
 
   getcronometro() {
-
     this.cronometro = setInterval(() => {
       this.tempoDeResposta = this.tempoDeResposta - 1;
-
       if (this.tempoDeResposta == 0) {
         clearInterval(this.cronometro);
-          this.route.navigateByUrl("/ranking" + this.pontuacao);
+        alert('Redirecionando para a tela de ranking');
+        // this.route.navigateByUrl("/ranking" + this.pontuacao);
       }
     }, 1000);
-
   }
 
-
-  alterarPergunta() {
-    
-    this.contador++;  
-    
+  alterarEstadoDoBotao() {
+    this.contarPerguntas++;
     if (this.contador == 1) {
-      this.enunciado = this.perguntas[0].enunciado;
-      this.alternativas = this.perguntas[0].alternativas;
-      this.alternativasCorreta = this.perguntas[0].alternativaCorreta;
       this.cabecalho = this.proximaPergunta[0].cabecalho;
       this.botao = this.proximaPergunta[0].botao
     }
-
-    this.calcularPontuacao()
-
     if (this.contador == 2) {
-      this.enunciado = this.perguntas[1].enunciado;
-      this.alternativas = this.perguntas[1].alternativas;
-      this.alternativasCorreta = this.perguntas[1].alternativaCorreta;
       this.cabecalho = this.proximaPergunta[1].cabecalho;
       this.botao = this.proximaPergunta[1].botao
     }
-
     if (this.contador == 3) {
-      this.enunciado = this.perguntas[2].enunciado;
-      this.alternativas = this.perguntas[2].alternativas;
-      this.alternativasCorreta = this.perguntas[2].alternativaCorreta;
       this.cabecalho = this.proximaPergunta[2].cabecalho;
       this.botao = this.proximaPergunta[2].botao
-    } else {
-      this.route.navigateByUrl("/ranking" + this.pontuacao);
     }
-
-    if (this.contador >= 4) {
-      this.contador = this.contador - 1;
-      alert("Encerrou o jogo");
-    }
-
   }
 
+  alterarPergunta() {
+    this.contador++;
+    this.calcularPontuacao();
+    if (this.contador == 2) {
+      this.enunciado = this.perguntas[1].enunciado;
+      this.alternativaA = this.perguntas[1].alternativa_a;
+      this.alternativaB = this.perguntas[1].alternativa_b;
+      this.alternativaC = this.perguntas[1].alternativa_c;
+      this.alternativaD = this.perguntas[1].alternativa_d;
+      this.alternativaE = this.perguntas[1].alternativa_e;
+      this.alternativasCorreta = this.perguntas[1].alternativa_correta;
+      this.alterarEstadoDoBotao();
+    } else if (this.contador == 3) {
+        this.enunciado = this.perguntas[2].enunciado;
+        this.alternativaA = this.perguntas[2].alternativa_a;
+        this.alternativaB = this.perguntas[2].alternativa_b;
+        this.alternativaC = this.perguntas[2].alternativa_c;
+        this.alternativaD = this.perguntas[2].alternativa_d;
+        this.alternativaE = this.perguntas[2].alternativa_e;
+        this.alternativasCorreta = this.perguntas[2].alternativa_correta;
+        this.alterarEstadoDoBotao();
+        } else {
+          this.contador = 0;
+          this.service.postPontuacao(this.nickname, this.pontuacao);
+          return alert('redirecionando para a tela de ranking');
+          // this.route.navigateByUrl("/ranking" + this.pontuacao);
+        }
+  }
 
   selecionarAlternativa(selecionada: string) {
     this.alternativaSelecionada = selecionada
   }
 
-
   calcularPontuacao() {
-  
     if (this.alternativaSelecionada == this.alternativasCorreta) {
       this.pontuacao += 5;
     }
-    console.log("alternativaSelecionada: " + this.alternativaSelecionada)
-    console.log("alternativa correta: " + this.alternativasCorreta)
-    console.log("pontuacao: " + this.pontuacao)
+    console.log(this.pontuacao);
+    console.log(this.alternativaSelecionada);
+    console.log(this.alternativasCorreta);
   }
-
 }

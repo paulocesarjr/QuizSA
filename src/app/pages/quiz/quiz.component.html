@@ -1,29 +1,28 @@
 <body>
-
     <div class="container">
         <nav>Início do Quiz - Situação de Aprendizagem</nav>
         <h1>Tempo Restante -> {{ tempoDeResposta }} </h1>
         <h2>{{contador}}/3 - {{cabecalho}}</h2>
-        <form>
-            <legend> {{ this.enunciado }} </legend>
+        <section>
+            <legend>{{enunciado}}</legend>
             <ul>
-                <li><button class="botoes" (click)="selecionarAlternativa('A')" id="x">A</button>
-                    <label for="x">{{this.alternativas[0]}}</label>
+                <li><button class="botoes" (click)="selecionarAlternativa('A')">A</button>
+                    <label>{{alternativaA}}</label>
                 </li>
                 <li><button class="botoes" (click)="selecionarAlternativa('B')">B</button>
-                    <label for="x">{{this.alternativas[1]}}</label>
+                    <label>{{alternativaB}}</label>
                 </li>
                 <li><button class="botoes" (click)="selecionarAlternativa('C')">C</button>
-                    <label for="x">{{this.alternativas[2]}}</label>
+                    <label>{{alternativaC}}</label>
                 </li>
                 <li><button class="botoes" (click)="selecionarAlternativa('D')">D</button>
-                    <label for="x">{{this.alternativas[3]}}</label>
+                    <label>{{alternativaD}}</label>
                 </li>
                 <li><button class="botoes" (click)="selecionarAlternativa('E')">E</button>
-                    <label for="x">{{this.alternativas[4]}}</label>
+                    <label>{{alternativaE}}</label>
                 </li>
             </ul>
-        </form>
-        <button type="submit" value="{{this.alternativaSelecionada}}" (click)="alterarPergunta()">{{botao}}</button>
+        </section>
+        <button type="submit" (click)="alterarPergunta()">{{botao}}</button>
     </div>
 </body>
