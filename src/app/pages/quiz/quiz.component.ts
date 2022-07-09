@@ -1,5 +1,5 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-quiz',
@@ -7,66 +7,56 @@ import { NavigationEnd } from '@angular/router';
   styleUrls: ['./quiz.component.css'],
 })
 export class QuizComponent implements OnInit {
+
   nickname: string = '';
-  acessKey: string = '157';
-  listNickname: any = [];
-  nick: any;
+  readonly apiURL: string;
+  body: any = {
+    nickname: this.nickname
+  }
 
-  constructor() {}
+  constructor(private http: HttpClient) { this.apiURL = 'https://quiz-api-senai.herokuapp.com' }
 
-  ngOnInit(): void {}
 
-  // authUser(campoValue: string) {
-  //   this.nickname = campoValue;
+  ngOnInit(): void { }
 
-  //   let data: string = this.nickname;
-
-  //   fetch(`http://localhost:8080/login`, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-type': 'application/json',
-  //     },
-  //     body: JSON.stringify(data),
-  //   })
-  //     .then((resp) => console.log(resp))
-  //     .catch((err) => console.log(err));
-  //   // requisição para a rota de login -- POST
-  // }
-
-  // endpoint = http://localhost:8080/login
 
   authUser(campoValue: string) {
-    this.nickname = campoValue;
-    // console.log(this.nickname, this.acessKey);
 
-    //logica redirecionamento dos guri
-    if (
-      this.nickname == '' ||
-      this.nickname == undefined ||
-      this.nickname == null
-    ) {
-      console.log('algo de errado n esta certo');
+    if (campoValue == undefined || campoValue == '' || campoValue == null) {
       alert('Nickname inválido!');
-    } else if (this.nickname == this.acessKey) {
-      console.log('entrou autor');
-      // redirecionar para pagina de autor
-      campoValue = '';
-    } else if (this.nickname != null || this.nickname == undefined) {
-      this.nick = this.listNickname.filter(
-        (nickname: string) => nickname === this.nickname
-      ).length;
-      // console.log(this.nick);
-      if (this.nick > 0) {
-        alert('Este nickname ja existe!');
-        console.log('nickname duplicado!');
-      } else {
-        console.log('entrou jogador');
-        this.listNickname.push(this.nickname);
-        // redirecionar
-        campoValue = '';
-      }
-    }
+    } else {
+      var myHeaders = new Headers();
+      myHeaders.append('Content-Type', 'application/json');
 
-    console.log(this.listNickname);
+      var raw = JSON.stringify({
+        nickname: campoValue
+      });
+
+      var requestOptions: any = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw
+      };
+
+
+        
+      fetch('https://quiz-api-senai.herokuapp.com/auth/', requestOptions)
+        .then((response) => response.json())
+        .then((result) => {
+          console.log(result.valid);
+          if (result.valid == true) {
+            alert('logado como autor!');
+          } else {
+            alert('logado como jogador!');
+          }
+        })
+        .catch((error) => console.log('error', error));
+    }
   }
+
 }
+
+
+
+
+
