@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PerguntasService } from 'src/app/services/perguntas.service';
 
 
 @Component({
@@ -9,9 +10,9 @@ import { Router } from '@angular/router';
 })
 export class PerguntasComponent implements OnInit {
 
-
   constructor(
-    private router: Router) {
+    private router: Router,
+    private service: PerguntasService) {
     console.log(this.perguntas)
   }
   
@@ -55,6 +56,7 @@ export class PerguntasComponent implements OnInit {
   ];
 
   ngOnInit(): void {
+
   }
 
     criar(){

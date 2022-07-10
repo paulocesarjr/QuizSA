@@ -42,10 +42,13 @@
   }
 
   .tabela{
-      display: flex;
-      justify-content: center;
-      margin-top: 8%;
-      margin-bottom: 5%;
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    max-height: 200px;
+    margin-bottom: 3%;
+    overflow:auto;
+
   }
 
   tr{
