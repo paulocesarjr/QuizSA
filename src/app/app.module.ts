@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PerguntasComponent } from './pages/perguntas/perguntas.component';
+import { PerguntasService } from './services/perguntas.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { PerguntasComponent } from './pages/perguntas/perguntas.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [PerguntasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
