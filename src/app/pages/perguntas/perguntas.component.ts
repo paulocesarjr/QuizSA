@@ -36,7 +36,6 @@ export class PerguntasComponent implements OnInit {
       let pergunta = this.perguntas.findIndex(perguntas => perguntas.id === id);
       if(pergunta !== -1){
       this.router.navigate(['criar-pergunta', pergunta]);
-      console.log(`editado id: ${id}`);
       }
     }
   
