@@ -17,11 +17,9 @@ export class PerguntasComponent implements OnInit {
   }
   
   perguntas: any[] = [];
-  id: number = 0;
-  data: Date = new Date
 
   ngOnInit(): void {
-    this.service.buscarPergunta().subscribe(res => {
+    this.service.buscarPergunta().subscribe((res: any) => {
       this.perguntas = res.perguntas;
       console.log(this.perguntas)
     });
@@ -29,14 +27,11 @@ export class PerguntasComponent implements OnInit {
 
     criar(){
       this.router.navigate(['criar-pergunta']);
-    
     }
 
     editar(id: number){
-      let pergunta = this.perguntas.findIndex(perguntas => perguntas.id === id);
-      if(pergunta !== -1){
+      let pergunta = this.perguntas.find(perguntas => perguntas.pergunta_id === id);
       this.router.navigate(['criar-pergunta', pergunta]);
-      }
     }
   
     excluir(id: number){

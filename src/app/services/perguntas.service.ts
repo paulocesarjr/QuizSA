@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +11,7 @@ export class PerguntasService {
 
   constructor(private http: HttpClient) {}
 
-  buscarPergunta(): Observable<any> {
+  buscarPergunta() {
     return this.http.get(`${this.url}/listapergunta`);
   }
 
