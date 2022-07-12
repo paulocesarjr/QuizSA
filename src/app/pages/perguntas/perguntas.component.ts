@@ -16,10 +16,9 @@ export class PerguntasComponent implements OnInit {
     private service: PerguntasService) {
   }
   
-  perguntas: any = [];
+  perguntas: any[] = [];
   id: number = 0;
   data: Date = new Date
-  
 
   ngOnInit(): void {
     this.service.buscarPergunta().subscribe(res => {
@@ -29,29 +28,22 @@ export class PerguntasComponent implements OnInit {
   }
 
     criar(){
-      this.router.navigate(['**']);
+      this.router.navigate(['criar-pergunta']);
     
     }
 
-   /*   //enviar o id da pergunta 
     editar(id: number){
       let pergunta = this.perguntas.findIndex(perguntas => perguntas.id === id);
       if(pergunta !== -1){
-      this.router.navigate(['editar', pergunta]);
+      this.router.navigate(['criar-pergunta', pergunta]);
       console.log(`editado id: ${id}`);
       }
-    } */
+    }
   
-    /* excluir(id: number){
-      this.service.excluirPergunta(id).subscribe(res =>{
-        this.id = res.id;
-      });
-      let pergunta = this.perguntas.findIndex(perguntas => perguntas.id === id);
-      if(pergunta !== -1){
-        this.perguntas.splice(pergunta, 1)
-        console.log(`pergunta ${id} excluida`);
-      }
-    }  */
+    excluir(id: number){
+      this.service.excluirPergunta(id).subscribe();
+      this.ngOnInit();
+    } 
 }
 
 

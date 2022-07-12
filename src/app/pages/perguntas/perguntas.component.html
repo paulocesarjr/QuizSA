@@ -16,8 +16,8 @@
               <tr *ngFor="let p of perguntas">
                   <td>Perguntas-{{p.pergunta_id}}</td>
                   <td class="data">{{p.data_cricao | date:'dd/MM/yyyy'}}</td>
-                  <td class="linha">Editar</td>
-                  <td class="linha">Excluir</td>
+                  <td class="linha"(click)="editar(p.pergunta_id)">Editar</td>
+                  <td class="linha" (click)="excluir(p.pergunta_id)">Excluir</td>
               </tr>
               </table>
               </div>   
